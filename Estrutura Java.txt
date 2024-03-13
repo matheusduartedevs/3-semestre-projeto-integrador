@@ -1,0 +1,23 @@
+src/
+	main/
+		java/
+			com/
+			|	techNinja/
+			|	|------	controllers/
+			|	|	|------ QuizController.java
+			|	|		
+			|	|------	models/
+			|	|	|------ Quiz.java
+			|	|	
+			|	|------	repositories/
+			|	|	|------ QuizRepository.java
+			|	|	
+			|	|------	services/
+			|	|	|------ QuizService.java	
+			|	|
+			|	|------ BackendApplication.java
+			|
+			|------resources/
+			       |--------- application.properties.java				
+								
+										
