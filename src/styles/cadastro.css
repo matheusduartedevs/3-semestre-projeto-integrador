@@ -5,17 +5,21 @@ body {
     padding: 0;
 }
 
+*{
+    font-size: 0.99em;
+}
+
 /* Header fixo */
 header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 10px;
+    width: 100em;
+    padding: 2em;
 }
 
 h3 {
-    font-size: 25px;
+    font-size: 1.5em;
     font-family: 'KARASHA';
     
 }
@@ -29,7 +33,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 60px;
+    padding: 3em 0 0 0;
 }
 
 /* Lado esquerdo */
@@ -39,30 +43,34 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 1.5em;
 }
 
 input {
-    margin: 10px;
-    height: 40px;
-    width: 300px;
+    margin: 0.4em;
+    padding: 0.5em 1em;
+    height: 1.5em;
+    width: 28em;
     border: 1px solid #000;
-    border-radius: 15px;
+    border-radius: 1em;
 }
 
 /* Botão */
 .button {
-    margin: 10px;
-    height: 40px;
-    width: 250px;
-    font-size: 20px;
+    margin: 0.5em;
+    height: 2.5em;
+    width: 18em;
+    padding: 0.5em 1em;
     border: none;
-    border-radius: 10px;
-    background-color: none;
+    border-radius: 1em;
+    background-color: none;   
 }
 
 .button:hover {
     cursor: pointer;
+    /*background-color:#03A65A;*/
+    background-color: black;
+    color: white;
 }
 
 /* Lado direito */
@@ -71,9 +79,10 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 1.8em;
 }
 
 .main-image {
-    height: 500px;
+    height: 30em;
+    justify-content:center
 }
