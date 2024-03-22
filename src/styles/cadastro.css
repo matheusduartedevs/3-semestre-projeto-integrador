@@ -14,14 +14,15 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100em;
+    width: 80em;
+    height: 1em;
     padding: 2em;
+    background-color: white;
 }
 
 h3 {
     font-size: 1.5em;
-    font-family: 'KARASHA';
-    
+    font-family: 'KARASHA';  
 }
 
 a {
@@ -31,6 +32,7 @@ a {
 
 main {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 3em 0 0 0;
@@ -44,6 +46,15 @@ main {
     justify-content: center;
     align-items: center;
     padding: 1.5em;
+}
+
+/* Lado direito */
+.right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.8em;
 }
 
 input {
@@ -63,26 +74,35 @@ input {
     padding: 0.5em 1em;
     border: none;
     border-radius: 1em;
-    background-color: none;   
+    background-color: black;
+    color: white;
+    
 }
 
 .button:hover {
     cursor: pointer;
-    /*background-color:#03A65A;*/
-    background-color: black;
+    background-color:#03A65A;
     color: white;
-}
-
-/* Lado direito */
-.right-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1.8em;
 }
 
 .main-image {
     height: 30em;
     justify-content:center
+}
+
+@media only screen and (max-width: 700px){
+    main {
+      flex-direction: column;
+      padding: 8em;
+      margin: 0em 0em;
+    }    
+
+    .main-image {
+        height: 20em;
+    }
+
+    input {
+        width: 20em;
+    }
+
 }
