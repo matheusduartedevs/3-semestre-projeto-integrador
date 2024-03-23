@@ -15,7 +15,7 @@ header {
     left: 0;
     width: 80em;
     height: 1em;
-    padding: 2em;
+    padding: 1em;
     background-color: white;
 }
 
@@ -47,7 +47,7 @@ main {
 }
 
 .main-image {
-    height: 500px;
+    height: 30em;
 }
 
 /* Lado direito */
@@ -57,40 +57,42 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 1.8em;
 }
 
 input {
-    margin: 10px;
-    height: 40px;
-    width: 300px;
+    margin: 0.4em;
+    padding: 0.5em 1em;
+    height: 1.5em;
+    width: 25em;
     border: 1px solid #000;
-    border-radius: 15px;
+    border-radius: 0.6em;
+}
+
+p{
+    margin:0;
 }
 
 p:hover {
     cursor: pointer;
+    color: #03A65A;
 }
 
 /* Botão */
 .button {
-    margin: 10px;
-    height: 40px;
-    width: 250px;
-    font-size: 20px;
+    margin: 0.5em;
+    height: 2.5em;
+    width: 18em;
+    padding: 0.5em 1em;
     border: none;
-    border-radius: 10px;
-    background-color: none;
+    border-radius: 0.6em;
+    background-color: black;
+    color: white;
 }
 
 .button:hover {
     cursor: pointer;
+    background-color:#03A65A;
 }
 
-a {
-    text-decoration: none;
-}
 
-a:hover {
-    cursor: pointer;
-}
