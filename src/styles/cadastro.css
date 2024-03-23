@@ -63,7 +63,7 @@ input {
     height: 1.5em;
     width: 28em;
     border: 1px solid #000;
-    border-radius: 1em;
+    border-radius: 0.6em;
 }
 
 /* Botão */
@@ -73,7 +73,7 @@ input {
     width: 18em;
     padding: 0.5em 1em;
     border: none;
-    border-radius: 1em;
+    border-radius: 0.6em;
     background-color: black;
     color: white;
     

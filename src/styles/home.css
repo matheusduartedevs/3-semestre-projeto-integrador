@@ -1,19 +1,20 @@
-/* Estilos gerais */
+
 body {
     font-family: Arial, 'Karasha', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: white;
 }
 
 header {
     background-color: #333;
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 20px;
 }
 
 header h3 {
-    font-size: 25px;
+    font-size: 1.6em;
     font-family: 'KARASHA';
 }
 
@@ -26,14 +27,13 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px;
+    padding: 0.5em;
 }
 
 /* Área do usuário */
 .user-area {
     width: 30%; /* Ajuste caso necessário */
-    padding-right: 20px;
-    
+    padding: 0 1em
 }
 
 .user-data {
@@ -43,15 +43,27 @@ main {
 }
 
 .user-photo {
-    width: 100px;
-    height: 100px;
+    width: 6em;
+    height: 6em;
     border-radius: 50%;
     margin-bottom: 10px;
+    background-color: #BF3F3F;
+    /*background precisa ser variável para imagens*/
+}
+
+.user-photo:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .user-name {
     text-align: center;
     font-size: 1.2rem;
+    cursor: default;
+}
+
+.user-name> h3{
+    margin: 0 6em;
 }
 
 .conquistas {
@@ -69,23 +81,29 @@ main {
 /* Áreas de conhecimento */
 .quizes-area {
     border-left: 2px solid #000;
-    width: 70%; 
-    background-color: #f9f9f9;
-    padding: 20px;
+    width: 60em; 
+    background-color: white;
+    padding: 1.6em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
+.quizes-area> div{
+    text-align: center;
+    padding: 6em 0;
+}
+
 .area-conhecimento {
     width: calc(33.33% - 20px); /* Espaço entre os retângulos */
-    height: 180px;
-    margin: 10px;
-    background-color: #ddd;
+    height: 11em;
+    margin: 1em 0;
+    background-color:#a1ff8e;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.2s;
+    border-radius: 0.3em;
 }
 
 .area-conhecimento:hover {

@@ -11,8 +11,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 10px;
-    font-size: 25px;
+    padding: 1em;
+    font-size: 1.5em;
     font-family: 'KARASHA';
 }
 
@@ -20,7 +20,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 60px;
+    padding-top: 2em;
 }
 
 /* Lado esquerdo */
@@ -30,7 +30,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 2em;
 }
 
 a {
@@ -40,28 +40,33 @@ a {
 
 /* Botões */
 .button {
-    margin: 10px;
-    height: 40px;
-    width: 250px;
-    font-size: 20px;
+    margin: 0.4em;
+    height: 2em;
+    width: 15em;
+    font-size: 1.2em;
     border: none;
-    border-radius: 10px;
-    background-color: none;
+    border-radius: 0.6em;
+    background-color: black;
+    color: white;
 }
 
 .button:hover {
     cursor: pointer;
+    background-color: #03A65A ;
 }
 
+.button>a {
+    color:white;
+}
 /* Lado direito */
 .right-column {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 1.5em;
 }
 
 .main-image {
-    height: 500px;
+    height: 30em;
 }
