@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: start;
+    padding: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: center;
+    font-size: 1.6em;
+    width: 9em;
+    height: 23em;
+    padding: 1em;
+    background-color: #f0f0f0;
+}
+
+.opcoes li:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.opcoes ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.opcoes ul li {
+    margin-bottom: 1em;
+}
+
+.opcoes ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.campos {
+    flex: 1;
+    padding: 1em;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+}
+
+button {
+    padding: 0.5em 1em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
