@@ -6,14 +6,22 @@ body {
 }
 
 header {
-    position: fixed;
-    width: 100em;
-    padding: 2em;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header h3 {
-    font-size: 1.5em;
-    font-family: 'KARASHA';
+header img {
+    height: 2.5em;
+    filter: invert(1);
+}
+
+.header-options img:hover {
+    transform: scale(1.1)
 }
 
 a {
