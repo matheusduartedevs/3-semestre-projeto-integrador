@@ -1,5 +1,3 @@
-/* estilo_externo.css */
-
 * {
     font-size: 1em;
     box-sizing: border-box;
@@ -41,21 +39,20 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 80em;
+    justify-content: center;
     padding: 1em;
-    background-color: #fff; /* Alterar cor */
-    border: 1px solid #ddd; 
-    border-radius: 0.5em;
-    margin-top: 65px;
+    background-color: #fff;
 }
 
 .area-questao {
+    text-align: center;
     border: 2px solid #000;
     border-radius: 0.8em;
     padding: 1em;
+    width: 70%;
     height: 10em;
     font-size: 2em;
+    margin-bottom: 1.3em;
 }
 
 .resposta {
@@ -75,7 +72,7 @@ main {
 
 .resposta p:hover {
     cursor: pointer;
-    background-color: #ddd; /* Alterar cor */
+    background-color: #ddd;
 }
 
 button {
