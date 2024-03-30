@@ -47,18 +47,19 @@ main {
 .area-questao {
     text-align: center;
     border: 2px solid #000;
-    border-radius: 0.8em;
-    padding: 1em;
-    width: 70%;
-    height: 10em;
-    font-size: 2em;
-    margin-bottom: 1.3em;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    width: 60%;
+    font-size: 1.8em;
+    margin-bottom: 0.3em;
 }
 
 .resposta {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 60%;
+
 }
 
 .resposta p {
@@ -67,7 +68,7 @@ main {
     width: 50em;
     text-align: center;
     border: 2px solid #000;
-    border-radius: 5em;
+    border-radius: 0.9em;
 }
 
 .resposta p:hover {
@@ -76,9 +77,9 @@ main {
 }
 
 button {
-    margin: 0.5em;
+    margin: 0.3em 1em;
     height: 2.5em;
-    width: 18em;
+    width: 23.8em;
     padding: 0.5em 1em;
     border: none;
     border-radius: 0.6em;
