@@ -1,0 +1,11 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Página Home</h1>
+<div th:each="modulo : ${modulos}">
+    <h2 th:text="${modulo.titulo}"></h2>
+    <a th:href="@{/modulo(modulo=${modulo.titulo})}">Acessar módulo</a>
+</div>
+</body>
+</html>
