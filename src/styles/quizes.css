@@ -85,3 +85,18 @@ main {
     cursor: pointer;
     transform: scale(1.05);
 }
+
+@media only screen and (max-width: 700px){
+    header img {
+        height: 1.5em;
+    }
+    
+    .user-area {
+        width: 0em; 
+        padding: 0em;
+    }
+
+    .quiz {
+        width: 25em;
+    }
+}

@@ -117,5 +117,9 @@ button:hover {
     .botoes {
         width: 79%;  
     }
+
+    header img {
+        height: 1.5em;
+    }
 }
 
