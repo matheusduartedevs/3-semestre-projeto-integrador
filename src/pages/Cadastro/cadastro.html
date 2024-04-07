@@ -16,17 +16,22 @@
 
     <main>
         <div class="left-column">
-            <input type="text" placeholder="Nome" id="" required>
-            <input type="text" placeholder="Email" id="" required>
-            <input type="text" placeholder="Senha" id="" required>
-            <input type="text" placeholder="Confirmar senha" id="" required>
-            <button class="button">Cadastrar</button>
+            <form id="register-form">
+                <input type="text" placeholder="Nome" id="name">
+                <input type="email" placeholder="Email" id="email">
+                <input type="password" placeholder="Senha" id="password">
+                <input type="password" placeholder="Confirmar senha" id="confirm-password">
+                <button class="button">Cadastrar</button>
+
+                <div class="error-message" id="error-message"></div>
+            </form>
         </div>
 
         <div class="right-column">
             <img src="../../assets/images/logoDark.png" alt="TechNinja logo" class="main-image">
         </div>
     </main>
+    <script src="./cadastro.js"></script>
 </body>
 
 </html>
