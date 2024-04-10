@@ -16,3 +16,9 @@ function verificarResposta() {
         alert('Por favor, selecione uma resposta antes de avançar.');
     }
 }
+
+function verificarSaida() {
+    if (confirm("Se você sair, perderá todo o progresso. Deseja continuar?")) {
+        window.location.href = "../Quizes/quizes.html";
+    }
+}
