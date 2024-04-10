@@ -77,6 +77,8 @@ main {
 .resposta-item.selected {
     background-color: #03A65A;
     font-weight: bold;
+    color: white;
+    border: none;
 }
 
 .botoes{
