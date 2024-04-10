@@ -16,13 +16,10 @@ header {
     left: 0;
     width: 80em;
     height: 1em;
-    padding: 2em;
+    padding: 1em;
     background-color: white;
-}
-
-h3 {
+    font-family: 'KARASHA';
     font-size: 1.5em;
-    font-family: 'KARASHA';  
 }
 
 a {
@@ -45,7 +42,11 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1.5em;
+    padding: 5em 0 5em 8em;
+}
+
+form{
+    display: contents;
 }
 
 /* Lado direito */
@@ -54,7 +55,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.8em;
+    padding: 2em 6em 2em 0;
 }
 
 input {
@@ -105,4 +106,7 @@ input {
         width: 20em;
     }
 
+    .right-column, .left-column {
+        padding: 4em;
+    }
 }

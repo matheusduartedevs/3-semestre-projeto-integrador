@@ -37,6 +37,10 @@ main {
     padding: 3em 0 0 0;
 }
 
+form{
+    display: contents;
+}
+
 /* Lado esquerdo */
 .left-column {
     flex: 1;
@@ -97,6 +101,10 @@ p:hover {
 .button:hover {
     cursor: pointer;
     background-color:#03A65A;
+}
+
+#error-mensage{
+    color: red;
 }
 
 @media only screen and (max-width: 700px){

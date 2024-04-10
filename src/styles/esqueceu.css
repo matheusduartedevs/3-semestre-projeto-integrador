@@ -35,6 +35,10 @@ main {
     padding: 3em 0 0 0;
 }
 
+form{
+    display: contents;
+}
+
 .left-column {
     flex: 1;
     display: flex;
