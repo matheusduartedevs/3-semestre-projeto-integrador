@@ -74,6 +74,11 @@ main {
     background-color: #ddd;
 }
 
+.resposta-item.selected {
+    background-color: #03A65A;
+    font-weight: bold;
+}
+
 .botoes{
     width: 62.5%;
     text-align: center;
