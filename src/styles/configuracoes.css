@@ -67,6 +67,10 @@ main {
     display: flex;
 }
 
+form{
+    display: block;
+}
+
 .opcoes {
     display: flex;
     justify-content: center;
@@ -98,7 +102,7 @@ main {
 
 .campos-perfil {
     width: 50em;
-    padding: 1em;
+    padding: 4em 7em ;
 }
 
 .campos-acessibilidade {
@@ -116,7 +120,7 @@ main {
 }
 
 .form-group input {
-    width: 100%;
+    width: 70%;
     padding: 0.5em;
     border: 1px solid #ccc;
     border-radius: 0.5em;
@@ -129,7 +133,7 @@ main {
 }
 
 button {
-    margin: 0.5em;
+    margin: .5em 20%;
     height: 2.5em;
     width: 18em;
     padding: 0.5em 1em;
@@ -150,11 +154,24 @@ button:hover {
         font-size: 1.3em;
         width: 5.5em;
         height: 23em;
-        padding: 1em;
         background-color: #f0f0f0;
     }
     
     header img {
         height: 1.5em;
     }
+
+    .campos-perfil{
+        display : flex;
+        padding: 2em;
+    }
+
+    button {
+        margin: 0em;
+    }
+
+    .form-group input {
+        width: 100%;
+    }
+  
 }
