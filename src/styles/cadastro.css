@@ -49,6 +49,10 @@ form{
     display: contents;
 }
 
+div>form>div{
+    color: #BF3F3F;
+}
+
 /* Lado direito */
 .right-column {
     flex: 1;

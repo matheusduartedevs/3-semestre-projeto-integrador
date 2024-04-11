@@ -103,8 +103,8 @@ p:hover {
     background-color:#03A65A;
 }
 
-#error-mensage{
-    color: red;
+div>form>div{
+    color: #BF3F3F;
 }
 
 @media only screen and (max-width: 700px){
