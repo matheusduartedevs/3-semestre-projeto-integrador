@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/karasha" rel="stylesheet"> <!-- Link da fonte -->
+    <link rel="stylesheet" href="/styles/tutorial.css">
+   
+</head>
+<body>
+    <div id="tutorial">
+        <h1>Título do Tutorial</h1>
+        <p>Este é um tutorial que muda de cor com o tema. Quando você clica no botão "Mudar tema", o fundo e o texto mudam de cor.</p>
+    </div>
+    <button id="theme-button">Mudar tema</button>
+    <script th:src="@{/js/theme.js}"></script>
+</body>
+</html>
