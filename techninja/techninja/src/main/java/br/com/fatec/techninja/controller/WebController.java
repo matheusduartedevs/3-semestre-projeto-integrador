@@ -1,14 +1,33 @@
 package br.com.fatec.techninja.controller;
 
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import br.com.fatec.techninja.model.Quiz;
+import br.com.fatec.techninja.model.User;
+
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.List;
+import java.util.Map;
+import org.json.*;
+import java.nio.file.*;
 import java.io.IOException;
 
 import javax.servlet.http.HttpSession;
@@ -20,177 +39,324 @@ import org.json.simple.parser.ParseException;
 
 @Controller
 public class WebController {
-
-    //O método login() responde a requisições GET para "/login" e retorna a página de login do aplicativo.
-    // Os usuários acessam essa página para autenticar-se no sistema antes de acessar recursos protegidos.
-
+//Pagina Incial do Site -- Incial
     @GetMapping("/")
     public String inicial() {
-
-        // Retorna a página inicial
         return "inicial";
     }
 
+
+//Pagina de Login -- Login
     @GetMapping("/login")
     public String login() {
-
-        // Retorna a página de login
         return "login";
     }
-
-    //Processo de autenticação do usuário o PostMapping é utilizad para capturar os dados submetidos pelo formulário de login.
-     @PostMapping("/login")
-     //Nessa parte vamos código verifica se as credenciais fornecidas pelo usuário durante o login correspondem a algum usuário registrado no sistema.
-     // Se correspondem, o usuário é autenticado e redirecionado para a página inicial.
-     //Se não correspondem, uma mensagem de erro é exibida e o usuário é redirecionado de volta para a página de login.
-    public String login(@RequestParam String email, @RequestParam String senha, RedirectAttributes redirectAttributes, HttpSession session) {
-         // Cria um parser JSON
-         //Um objeto JSONParser é criado para analisar o conteúdo do arquivo "usuarios.json", que contém informações sobre os usuários do sistema.
+//Logicas e Implementações de Login -- Logica Login
+@PostMapping("/login")
+    public String login(@RequestParam String email, @RequestParam String senha, RedirectAttributes redirectAttributes,
+            HttpSession session) {
         JSONParser jsonParser = new JSONParser();
-        //abrir e ler o arquivo "usuarios.json" usando FileReader.
-         //Se a leitura for bem-sucedida, o conteúdo é analisado como um objeto JSON.
         try (FileReader reader = new FileReader("usuarios.json")) {
             // Lê o arquivo JSON existente
             Object obj = jsonParser.parse(reader);
-            //O objeto JSON é convertido em uma lista de usuários (JSONArray).
             JSONArray listaUsuarios = (JSONArray) obj;
-            
-            // Percorre a lista de usuários para verificar se as credenciais fornecidas existem
+
+            // Percorre a lista de usuários para verificar se as credenciais fornecidas
+            // existem
             for (Object usuarioObj : listaUsuarios) {
                 JSONObject usuario = (JSONObject) usuarioObj;
                 if (usuario.get("email").equals(email) && usuario.get("senha").equals(senha)) {
-                    // Se as credenciais existirem, gera um logedToken e redireciona para pagina inicial
+                    // Se as credenciais existirem, gera um logedToken e redireciona para a home
                     session.setAttribute("logedToken", true);
-                    //Se as credenciais não correspondem a nenhum usuário na lista, uma mensagem de erro é adicionada aos atributos de redirecionamento.
-                    //O usuário é redirecionado de volta para a página de login.
+                    session.setAttribute("logedEmail", email); //adicionando o email do usuario na sessão
+
                     return "redirect:/home";
                 }
             }
 
         } catch (IOException | ParseException e) {
-            // Se houver algum erro ao ler o arquivo JSON ou ao processar os dados, uma pilha de erros será impressa para facilitar a depuração.
             e.printStackTrace();
         }
 
-        // Se as credenciais não existirem, exibe um erro, adiciona um atributo de erro para exibição na página de login e redireciona de volta para o login
+        // Se as credenciais não existirem, exibe um erro
         redirectAttributes.addFlashAttribute("error", "Email ou senha inválidos!");
         return "redirect:/login";
     }
 
-
-
-
-    //Quando usuário acessar a url home, ele recebe um objeto HttpSession como parâmetro, que é usado para verificar se o usuário está autenticado.
-    //
-    @GetMapping("/home")
-    public String home(HttpSession session) {
-        // Verifica se o usuário possui um token de autenticação na sessão
-        if (session.getAttribute("logedToken") != null) {
-            // Se o usuário estiver autenticado, retorna a página inicial
-            return "home";
-        } else {
-            // Se o usuário não possuir um logedToken, retorna uma página de erro
-            return "error";
-        }
-    }
-
-
-
-    //Este método é chamado quando um usuário acessa a URL "/cadastro".
-    //Ele não possui parâmetros e não precisa verificar a autenticação do usuário.
+//Pagina de Cadastro -- Cadastro
     @GetMapping("/cadastro")
     public String cadastro() {
-
-        // Retorna a página de cadastro
         return "cadastro";
     }
-
-
-
-
-
-
+   
+/*
     @PostMapping("/cadastro")
-    //Este método é mapeado para a rota "/cadastro" e é chamado quando um formulário de cadastro é submetido via método POST.
-    //Este método captura os dados submetidos pelo formulário de cadastro, cria um novo usuário, atualiza o arquivo JSON que armazena os usuários e redireciona o usuário de volta para a página de login com uma mensagem de sucesso após o cadastro bem-sucedido.
-    public String cadastro(@RequestParam String nome, @RequestParam String email, @RequestParam String senha, RedirectAttributes redirectAttributes) {
-        // Cria um novo objeto JSON com as informações do usuário fornecidas representa um novo usuário
-        //Os parâmetros nome, email e senha são obtidos a partir dos campos do formulário de cadastro.
+    public String cadastro(@RequestParam String nome, @RequestParam String email, @RequestParam String senha, @RequestParam String repSenha, RedirectAttributes redirectAttributes) {
+        JSONParser jsonParser = new JSONParser();
+        JSONArray listaUsuarios = new JSONArray();
+    
+        // Verifica se o arquivo usuarios.json existe, se não existir ele cria o arquivo
+        File file = new File("usuarios.json");
+        if (file.exists()) {
+            try (FileReader reader = new FileReader("usuarios.json")) {
+                // Lê o arquivo JSON existente
+                Object obj = jsonParser.parse(reader);
+                listaUsuarios = (JSONArray) obj;
+            } catch (IOException | ParseException e) {
+                // handle exception
+            }
+        }
+    
+        // Adiciona o novo usuário
         JSONObject novoUsuario = new JSONObject();
         novoUsuario.put("nome", nome);
         novoUsuario.put("email", email);
         novoUsuario.put("senha", senha);
-        
-        File file = new File("usuarios.json");
-        // Cria um arquivo "usuarios.json" se ele não existir e inicializa com uma lista vazia
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-                // Inicializa o arquivo com uma lista vazia
-                try (FileWriter writer = new FileWriter("usuarios.json")) {
-                    writer.write("[]");
-                }
-            } catch (IOException e) {
-                // Em caso de exceção ao criar o arquivo, imprime a pilha de erros
-                e.printStackTrace();
-                return "Erro ao criar o arquivo usuarios.json";
-            }
+        novoUsuario.put("repSenha", repSenha);
+        listaUsuarios.add(novoUsuario);
+    
+        // Salva a lista atualizada no arquivo
+        try (FileWriter writer = new FileWriter("usuarios.json")) {
+            writer.write(listaUsuarios.toJSONString());
+            writer.flush();
+        } catch (IOException e) {
+            // handle exception
         }
-        JSONParser jsonParser = new JSONParser();
+    
+        redirectAttributes.addFlashAttribute("success", "Usuário cadastrado com sucesso.");
+        return "redirect:/login";
+    } */
+
+//Logicas e Implementações de Cadastro -- Logica Cadastro
+    @PostMapping("/cadastro")
+public String cadastro(@RequestParam String nome, @RequestParam String email, @RequestParam String senha,@RequestParam String repSenha,
+        RedirectAttributes redirectAttributes) {
+    JSONParser jsonParser = new JSONParser();
+    JSONArray listaUsuarios = new JSONArray();
+
+//Verifica se o arquivo usuarios.json existe, se não existir ele cria o arquivo
+    File file = new File("usuarios.json");
+    if (file.exists()) {
         try (FileReader reader = new FileReader("usuarios.json")) {
             // Lê o arquivo JSON existente
             Object obj = jsonParser.parse(reader);
-            JSONArray listaUsuarios = (JSONArray) obj;
+            listaUsuarios = (JSONArray) obj;
 
-            // Adiciona o novo usuário
-            listaUsuarios.add(novoUsuario);
-
-            // Reescreve o arquivo JSON com o novo usuário adicionando
-            try (FileWriter fileWriter = new FileWriter("usuarios.json")) {
-                fileWriter.write(listaUsuarios.toJSONString());
-                fileWriter.flush();
+            // Verifica se o e-mail já existe
+            for (Object usuarioObj : listaUsuarios) {
+                JSONObject usuario = (JSONObject) usuarioObj;
+                if (usuario.get("email").equals(email)) {
+                    redirectAttributes.addFlashAttribute("error", "O e-mail já está em uso.");
+                    return "redirect:/cadastro";
+                }
             }
-
         } catch (IOException | ParseException e) {
-            // Em caso de exceção ao ler ou escrever no arquivo JSON, imprime a pilha de erros
-            e.printStackTrace();
+            // handle exception
         }
-
-        // Adiciona um atributo de mensagem de sucesso e redireciona de volta para o login
-        redirectAttributes.addFlashAttribute("message", "Usuário cadastrado com sucesso!");
-        return "redirect:/login";
     }
+    if (!senha.equals(repSenha)) {
+        redirectAttributes.addFlashAttribute("error", "As senhas não coincidem.");
+        return "redirect:/cadastro";
+    }
+    
+
+    // Se o e-mail não existir na lista, adiciona o novo usuário
+    JSONObject novoUsuario = new JSONObject();
+    novoUsuario.put("nome", nome);
+    novoUsuario.put("email", email);
+    novoUsuario.put("senha", senha);
+    novoUsuario.put("repSenha", repSenha);
+    listaUsuarios.add(novoUsuario);
+
+    // Salva a lista atualizada no arquivo
+    try (FileWriter writer = new FileWriter("usuarios.json")) {
+        writer.write(listaUsuarios.toJSONString());
+        writer.flush();
+    } catch (IOException e) {
+        // handle exception
+    }
+    //associandos as informações do usuario com as funcionalidades do sistema
+
+    // Carrega a lista de informações de usuários existentes
+    JSONArray listaUsuariosInfo = new JSONArray();
+try (FileReader reader = new FileReader("usuariosInfo.json")) {
+    listaUsuariosInfo = (JSONArray) jsonParser.parse(reader);
+} catch (IOException | ParseException e) {
+    // handle exception
+}
+    JSONObject novoUsuarioInfo = new JSONObject();
+novoUsuarioInfo.put("email", email);
+novoUsuarioInfo.put("username", nome);
+novoUsuarioInfo.put("profilePicture", ""); // Adicione a URL da imagem de perfil padrão aqui, se houver
+novoUsuarioInfo.put("quizScores", new JSONArray());
+novoUsuarioInfo.put("completedQuizzes", new JSONArray());
+novoUsuarioInfo.put("accountLevel", "bronze");
+// Adiciona o novo objeto à lista
+listaUsuariosInfo.add(novoUsuarioInfo);
+
+// Salva a lista atualizada no arquivo
+try (FileWriter writer = new FileWriter("usuariosInfo.json")) {
+    writer.write(listaUsuariosInfo.toJSONString());
+    writer.flush();
+} catch (IOException e) {
+    // handle exception
+}
+
+    redirectAttributes.addFlashAttribute("success", "Usuário cadastrado com sucesso.");
+    return "redirect:/login";
+}
 
 
 
+//Pagina Home -- Home
+@GetMapping("/home")
+public String home(HttpSession session) {
+    // Verifica se o usuário possui um logedToken
+    if (session.getAttribute("logedToken") != null) {
+        return "home";
+    } else {
+        // Se o usuário não possuir um logedToken, exibe um erro
+        return "error";
+    }
+}
 
-
-    //cada método retorna o nome da página HTML correspondente à URL acessada, permitindo que o Spring MVC direcione a requisição para a visualização apropriada.
+//Pagina de Perfil -- Perfil
     @GetMapping("/perfil")
-    public String perfil() {
-        // Verifique se o usuário está logado e se ele está na página 'home' antes de retornar a página
-        // Retorna a página de perfil
-        return "perfil";
+    public String perfil(HttpSession session) {
+        // Verifique se o usuário está logado
+        if (session.getAttribute("logedToken") != null) {
+            return "perfil";
+        } else {
+            // Se o usuário não possuir um logedToken, exibe um erro
+            return "error";
+        }
     }
 
+//Pagina de Tutorial -- Tutorial
     @GetMapping("/tutorial")
     public String tutorial() {
-
-        // Retorna a página de tutorial
         return "tutorial";
     }
 
+//Pagina de Perguntas -- Perguntas
     @GetMapping("/perguntas")
     public String perguntas() {
-        // Verifique se o usuário está logado e se ele passou pela página 'home' antes de retornar a página
-        // Retorna a página de perguntas
+        // Verifique se o usuário está logado
         return "perguntas";
     }
 
+//Pagina de Configurações -- Configurações
     @GetMapping("/configuracoes")
     public String configuracoes() {
-
-        // Retorna a página de configurações
+        //verificar se o usuário está logado
         return "configuracoes";
     }
+
+//Pagina de Esqueceu a Senha -- Esqueceu
+    @GetMapping("/esqueceu")
+    public String esqueceu() {
+        return "esqueceu";
+    }
+
+//Pagina de Testes -- Testes
+
+    
+
+    @GetMapping("/checkEmail")
+public ResponseEntity<Boolean> checkEmail(@RequestParam String email) {
+    JSONParser jsonParser = new JSONParser();
+    JSONArray listaUsuarios = new JSONArray();
+    File file = new File("usuarios.json");
+    if (file.exists()) {
+        try (FileReader reader = new FileReader("usuarios.json")) {
+            Object obj = jsonParser.parse(reader);
+            listaUsuarios = (JSONArray) obj;
+            for (Object usuarioObj : listaUsuarios) {
+                JSONObject usuario = (JSONObject) usuarioObj;
+                if (usuario.get("email").equals(email)) {
+                    return ResponseEntity.ok(true);
+                }
+            }
+        } catch (IOException | ParseException e) {
+            // handle exception
+        }
+    }
+    return ResponseEntity.ok(false);
+}
+
+/*@PostMapping("/checkCredentials")
+@ResponseBody
+public boolean checkCredentials(@RequestParam String email, @RequestParam String senha) {
+    JSONParser jsonParser = new JSONParser();
+    JSONArray listaUsuarios = new JSONArray();
+
+    // Verifica se o arquivo usuarios.json existe
+    File file = new File("usuarios.json");
+    if (file.exists()) {
+        try (FileReader reader = new FileReader("usuarios.json")) {
+            // Lê o arquivo JSON existente
+            Object obj = jsonParser.parse(reader);
+            listaUsuarios = (JSONArray) obj;
+
+            // Verifica se o e-mail e a senha estão corretos
+            for (Object usuarioObj : listaUsuarios) {
+                JSONObject usuario = (JSONObject) usuarioObj;
+                if (usuario.get("email").equals(email) && usuario.get("senha").equals(senha)) {
+                    return true;
+                }
+            }
+        } catch (IOException | ParseException e) {
+            // handle exception
+        }
+    }
+    return false;
+}*/
+
+@GetMapping("/quizes")
+public String quizes(HttpSession session, Model model) {
+    String logedEmail = (String) session.getAttribute("logedEmail");
+    model.addAttribute("logedEmail", logedEmail);
+    // Verifique se o usuário está logado
+    return "quizes";
+}
+@GetMapping("/quiz1")
+public String quiz1() {
+    // Verifique se o usuário está logado
+    return "quiz1";
+}
+
+
+
+
+@GetMapping("/profile")
+public String perfil() {
+    // Verifique se o usuário está logado
+    return "perfil";
+}
+@GetMapping("/testes")
+public String testes(HttpSession session, Model model) {
+    String logedEmail = (String) session.getAttribute("logedEmail");
+    if (logedEmail == null) {
+        return "redirect:/login";
+    }
+    model.addAttribute("logedEmail", logedEmail);
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+        
+        List<Map<String, Object>> users = objectMapper.readValue(Paths.get("/usuariosInfo.json").toFile(), new TypeReference<List<Map<String, Object>>>(){});
+
+        for (Map<String, Object> user : users) {
+            if (logedEmail.equals(user.get("email"))) {
+                model.addAttribute("userInfo", user);
+                
+                break;
+            }
+        }
+    } catch (IOException e) {
+        // handle exception
+    }
+
+    return "testes";
+}
 }
