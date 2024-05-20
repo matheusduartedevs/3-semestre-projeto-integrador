@@ -169,9 +169,14 @@ button:hover {
     button {
         margin: 0em;
     }
-
-    .form-group input {
-        width: 100%;
+    
+    .form-group input[type="checkbox"]{
+        width: 19%;
+        margin: 0em ;
     }
-  
+
+    .form-group label {
+        margin: 0;
+    }
+    
 }
