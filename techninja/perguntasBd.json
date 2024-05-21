@@ -1,0 +1,60 @@
+{
+    "questions": [
+        {
+            "difficulty": "facil",
+            "theme": "Tema 1",
+            "question": "Pergunta 1",
+            "answers": ["Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"],
+            "correctAnswer": 0
+        },
+        {
+            "difficulty": "intermediario",
+            "theme": "Tema 2",
+            "question": "Pergunta 2",
+            "answers": ["Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"],
+            "correctAnswer": 2
+        },
+        {
+            "difficulty": "dificil",
+            "theme": "Tema 3",
+            "question": "Pergunta 3",
+            "answers": ["Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"],
+            "correctAnswer": 3
+        },
+        {
+            "difficulty": "facil",
+            "theme": "Tema 1",
+            "question": "Pergunta 3",
+            "answers": ["Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"],
+            "correctAnswer": 0
+        },
+        {
+            "difficulty": "facil",
+            "theme": "Tema 2",
+            "question": "Pergunta 2",
+            "answers": ["Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"],
+            "correctAnswer": 0
+        },
+        {
+            "difficulty": "facil",
+            "theme": "Tema 1",
+            "question": "Pergunta 2",
+            "answers": ["Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"],
+            "correctAnswer": 0
+        },
+        {
+            "difficulty": "dificil",
+            "theme": "Tema 3",
+            "question": "Pergunta 4",
+            "answers": ["Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"],
+            "correctAnswer": 3
+        },
+        {
+            "difficulty": "facil",
+            "theme": "historia da tecnologia",
+            "question": "quem é conhecido como o pai da computação?",
+            "answers": ["alan turing", "steve jobs", "bill gates", "tim berners-lee"],
+            "correctAnswer": 0
+        }
+    ]
+}
