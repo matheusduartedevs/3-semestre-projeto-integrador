@@ -5,8 +5,12 @@ body {
     background-color: white;
 }
 
+body.dark-mode {
+    background-color: rgb(65, 64, 66);
+}
+
 header {
-    background-color: #333;
+    background-color: black;
     color: white;
     text-align: center;
     padding: 0.2em 1em;
@@ -16,7 +20,7 @@ header {
 }
 
 header.dark-mode {
-    background-color: red;
+    
 }
 
 header h3 {
@@ -94,7 +98,7 @@ main {
 }
 
 .area-conhecimento.dark-mode {
-    background-color: blue;
+    background-color: #03A65A;
 }
 
 @media only screen and (max-width: 700px){
