@@ -54,7 +54,7 @@ main {
     width: em;
 }
 
-.area-questao {
+.question-block {
     text-align: center;
     /* border: 2px solid #000; */
     border-radius: 0.5em;
@@ -63,14 +63,18 @@ main {
     font-size: 1.8em;
 }
 
-.resposta {
+.answers-block {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 40%;
 }
 
-.resposta p {
+.answers-block input[type="radio"] {
+    display: none;
+}
+
+.answers-block label {
     margin: 0.5em 0;
     padding: 10px;
     width: 100%;
@@ -79,13 +83,13 @@ main {
     border-radius: 0.9em;
 }
 
-.resposta p:hover {
+.answers-block label:hover {
     cursor: pointer;
     background-color: #ddd;
     border: 2px solid #000;
 }
 
-.resposta-item.selected {
+.resposta-item:checked + label {
     background-color: #03A65A;
     font-weight: bold;
     border: none;
