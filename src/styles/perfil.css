@@ -23,20 +23,22 @@ header img {
     transform: scale(1.1)
 }
 
+
 .user-info {
-    padding: 1em;
+    padding: 1em 4em;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #000;
+    height: 6em;
 }
 
 .user-info img {
     border-radius: 50%;
-    background-color: red;
+    background-color: green;
 }
 
 .stats {
-    padding: 1em;
+    padding: 1em 4em;
     border-bottom: 1px solid #000;
 }
 
@@ -59,7 +61,7 @@ header img {
 }
 
 .awards {
-    padding: 1em;
+    padding: 1em 4em;
 }
 
 .awards img {
@@ -69,9 +71,10 @@ header img {
     align-items: center;
     border: 2px solid #000;
     border-radius: 1.5em;
-    width: 10em;
-    height: 10em;
-    background-color: red;
+    width: 8em;
+    height: 8em;
+    padding: .5em
+    background-color:;
 }
 
 .awards-info {

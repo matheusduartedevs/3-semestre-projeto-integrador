@@ -9,6 +9,9 @@ body {
     min-height: 100vh;
     background-color: #F5F5DC;
 }
+h2{
+     margin: 0;
+}
 
 header {
     background-color: #333;
@@ -47,7 +50,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 100px;
+    padding-bottom: 7em;
+    width: em;
 }
 
 .area-questao {
@@ -55,9 +59,8 @@ main {
     /* border: 2px solid #000; */
     border-radius: 0.5em;
     padding: 0.5em;
-    width: 60%;
+    width: 50%;
     font-size: 1.8em;
-    margin-bottom: 0.3em;
 }
 
 .resposta {
@@ -79,12 +82,12 @@ main {
 .resposta p:hover {
     cursor: pointer;
     background-color: #ddd;
+    border: 2px solid #000;
 }
 
 .resposta-item.selected {
     background-color: #03A65A;
     font-weight: bold;
-    color: white;
     border: none;
 }
 
