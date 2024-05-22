@@ -4,121 +4,36 @@
       "area": "História da Tecnologia",
       "dificuldade": "Fácil",
       "pergunta": "Quem é conhecido como o pai da computação",
-      "alternativas": [
-        {
-          "opcao": "A",
-          "textoOpcao": "Alan Turing"
-        },
-        {
-          "opcao": "B",
-          "textoOpcao": "Steve Jobs"
-        },
-        {
-          "opcao": "C",
-          "textoOpcao": "Bill Gates"
-        },
-        {
-          "opcao": "D",
-          "textoOpcao": "Tim Berners-Lee"
-        }
-      ],
-      "resposta": "A"
+      "alternativas": ["Alan Turing", "Steve Jobs", "Bill Gates", "Tim Berners-Lee"],
+      "resposta": 0
     },
     {
       "area": "História da Tecnologia",
       "dificuldade": "Fácil",
       "pergunta": "Qual foi o primeiro computador eletrônico digital?",
-      "alternativas": [
-        {
-          "opcao": "A",
-          "textoOpcao": "ENIAC"
-        },
-        {
-          "opcao": "B",
-          "textoOpcao": "IBM 360"
-        },
-        {
-          "opcao": "C",
-          "textoOpcao": "Apple I"
-        },
-        {
-          "opcao": "D",
-          "textoOpcao": "UNIVAC"
-        }
-      ],
-      "resposta": "A"
+      "alternativas": ["ENIAC", "IBM 360", "Apple I", "UNIVAC"],
+      "resposta": 0
     },
  {
       "area": "História da Tecnologia",
       "dificuldade": "Fácil",
       "pergunta": "Qual foi o ano do lançamento do primeiro iPhone?",
-      "alternativas": [
-        {
-          "opcao": "A",
-          "textoOpcao": "2005"
-        },
-        {
-          "opcao": "B",
-          "textoOpcao": "2007"
-        },
-        {
-          "opcao": "C",
-          "textoOpcao": "2010"
-        },
-        {
-          "opcao": "D",
-          "textoOpcao": "2009"
-        }
-      ],
-      "resposta": "B"
+      "alternativas": ["2005", "2007", "2010", "2009"]
+      "resposta": 1
     },
  {
       "area": "História da Tecnologia",
       "dificuldade": "Fácil",
       "pergunta": "Quem é considerado o inventor da World Wide Web (WWW)?",
-      "alternativas": [
-        {
-          "opcao": "A",
-          "textoOpcao": "Bill Gates"
-        },
-        {
-          "opcao": "B",
-          "textoOpcao": "Tim Berners-Lee"
-        },
-        {
-          "opcao": "C",
-          "textoOpcao": "Mark Zuckerberg"
-        },
-        {
-          "opcao": "D",
-          "textoOpcao": "Larry Page"
-        }
-      ],
-      "resposta": "B"
+      "alternativas": ["Bill Gates", "Tim Berners-Lee", "Mark Zuckerberg", "Larry Page"]
+      "resposta": 1
     },
  {
       "area": "História da Tecnologia",
       "dificuldade": "Fácil",
       "pergunta": "Qual foi o primeiro sistema operacional de código aberto?",
-      "alternativas": [
-        {
-          "opcao": "A",
-          "textoOpcao": "Windows"
-        },
-        {
-          "opcao": "B",
-          "textoOpcao": "Linux"
-        },
-        {
-          "opcao": "C",
-          "textoOpcao": "MacOS"
-        },
-        {
-          "opcao": "D",
-          "textoOpcao": "Android"
-        }
-      ],
-      "resposta": "B"
+      "alternativas": ["Windows", "Linux", "MacOS", "Android"],
+      "resposta": 1
     },
  {
       "area": "História da Tecnologia",
