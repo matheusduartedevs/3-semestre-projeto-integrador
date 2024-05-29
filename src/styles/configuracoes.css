@@ -15,6 +15,10 @@ header {
     align-items: center;
 }
 
+header.baixa-visao {
+    font-size: 100px;
+}
+
 header img {
     height: 2.5em;
     filter: invert(1);
@@ -69,6 +73,10 @@ main {
 
 form{
     display: block;
+}
+
+.menu.baixa-visao {
+    font-size: 40px;
 }
 
 .opcoes {
