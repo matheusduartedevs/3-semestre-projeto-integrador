@@ -5,6 +5,9 @@ const acessibilidadeCampos = document.getElementById('acessibilidade');
 const baixaVisaoSwitch = document.getElementById('baixa-visao')
 const daltonicoSwitch = document.getElementById('daltonico')
 const header = document.querySelector('header')
+const body = document.querySelector('body')
+const button = document.querySelector('button')
+const campoPerfil = document.getElementById('campo-perfil')
 
 // Navegar entre menus
 perfilLink.addEventListener('click', () => {
@@ -51,9 +54,16 @@ if (isModoBaixaVisaoAtivado) {
 
 baixaVisaoSwitch.addEventListener('change', () => {
     header.classList.toggle('baixa-visao');
+    body.classList.toggle('baixa-visao');
+    button.classList.toggle('baixa-visao');
+    campoPerfil.toggle('baixa-visao');
+    
     
 
     sessionStorage.setItem('baixa-visao', header.classList.contains('baixa-visao'));
+    sessionStorage.setItem('baixa-visao', body.classList.contains('baixa-visao'));
+    sessionStorage.setItem('baixa-visao', button.classList.contains('baixa-visao'));
+    sessionStorage.setItem('baixa-visao', campoPerfil.classList.contains('baixa-visao'));
 });
 
 // Modo Daltônico

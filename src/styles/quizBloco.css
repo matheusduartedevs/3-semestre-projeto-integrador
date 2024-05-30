@@ -1,3 +1,10 @@
+:root {
+    --false: #BF3F3F;
+    --true: #03A65A;
+    --true-daltonico: #0000FF;
+    --texto-baixa-visao: 1.8em;
+} 
+
 * {
     font-size: 1em;
 }
@@ -9,8 +16,13 @@ body {
     min-height: 100vh;
     background-color: #F5F5DC;
 }
+
 h2{
      margin: 0;
+}
+
+h2.baixa-visao{
+    font-size: var(--texto-baixa-visao);
 }
 
 header {
@@ -26,6 +38,10 @@ header {
 header img {
     height: 2.5em;
     filter: invert(1);
+}
+
+header img.baixa-visao {
+    height: 3em;
 }
 
 .header-options img:hover {
@@ -56,11 +72,17 @@ main {
 
 .question-block {
     text-align: center;
-    /* border: 2px solid #000; */
+    /* border: 2px solid #000;*/ 
     border-radius: 0.5em;
     padding: 0.5em;
     width: 50%;
     font-size: 1.8em;
+} 
+
+.question-block.baixa-visao {
+    padding: 0.5em;
+    width: 70%;
+    font-size: var(--texto-baixa-visao);
 }
 
 .answers-block {
@@ -68,6 +90,11 @@ main {
     flex-direction: column;
     align-items: center;
     width: 40%;
+} 
+
+.answers-block.baixa-visao {
+    width: 60%;
+    font-size: var(--texto-baixa-visao);
 }
 
 .answers-block input[type="radio"] {
@@ -95,6 +122,10 @@ main {
     border: none;
 }
 
+.resposta-item:checked + label.baixa-visao {
+    background-color: var(--true-daltonico);
+}
+
 .botoes{
     width: 62.5%;
     text-align: center;
@@ -118,11 +149,20 @@ button {
 #button2{
     width: 48%;
     margin: 0.3em 0 0.3em 1%;
+} 
+
+#button2.baixa-visao{
+    width: 60%;
+    font-size: var(--texto-baixa-visao);
 }
 
 button:hover {
     cursor: pointer;
     background-color: #03A65A;
+}
+
+button:hover.baixa-visao {
+    background-color: var(--true-daltonico);
 }
 
 @media only screen and (max-width: 700px){

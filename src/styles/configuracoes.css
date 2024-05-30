@@ -2,7 +2,7 @@
     --false: #BF3F3F;
     --true: #03A65A;
     --true-daltonico: #0000FF;
-    --texto-baixa-visao: 2.5px;
+    --texto-baixa-visao: 1.7em;
 } 
 /* Estrutura a ser seguida em todas os CSS. Declarar no cabeçalho as cores para daltonicos e tamanhos para baixa visão */
 
@@ -11,6 +11,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-y: hidden;
+}
+
+body.baixa-visao{
+    font-size: var(--texto-baixa-visao);
 }
 
 header {
@@ -24,7 +28,7 @@ header {
 }
 
 header.baixa-visao {
-    font-size: 100px;
+    height: 5em;
 }
 
 header img {
@@ -87,10 +91,6 @@ form{
     display: block;
 }
 
-.menu.baixa-visao {
-    font-size: 20px;
-}
-
 .opcoes {
     display: flex;
     justify-content: center;
@@ -120,13 +120,14 @@ form{
     color: #333;
 }
 
-.opcoes.baixa-visao {
-    font-size: var(--texto-baixa-visao);
+.campos-perfil {
+    width: 50em;
+    padding: 4em 7em ;
 }
 
 .campos-perfil {
     width: 50em;
-    padding: 4em 7em ;
+    padding: 2em 4em ;
 }
 
 .campos-acessibilidade {
@@ -171,6 +172,14 @@ button {
 button:hover {
     cursor: pointer;
     background-color:#03A65A;
+}
+
+button:hover.daltonico{
+    background-color: var(--true-daltonico);
+}
+
+button.baixa-visao{
+    width: 30em;
 }
 
 @media only screen and (max-width: 700px){
