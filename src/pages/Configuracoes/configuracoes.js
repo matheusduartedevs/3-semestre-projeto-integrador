@@ -3,8 +3,10 @@ const acessibilidadeLink = document.getElementById('acessibilidade-link');
 const perfilCampos = document.getElementById('perfil');
 const acessibilidadeCampos = document.getElementById('acessibilidade');
 const baixaVisaoSwitch = document.getElementById('baixa-visao')
+const daltonicoSwitch = document.getElementById('daltonico')
 const header = document.querySelector('header')
 
+// Navegar entre menus
 perfilLink.addEventListener('click', () => {
     perfilCampos.style.display = 'block';
     acessibilidadeCampos.style.display = 'none';
@@ -15,6 +17,7 @@ acessibilidadeLink.addEventListener('click', () => {
     acessibilidadeCampos.style.display = 'block';
 });
 
+// Função de Notificação na página de configurações de perfil
 document.getElementById('profile-form').addEventListener('submit', function (event) {
     event.preventDefault()
     if ('Notification' in window) {
@@ -26,6 +29,7 @@ document.getElementById('profile-form').addEventListener('submit', function (eve
     }
 })
 
+// Função de Notificação na página de acessibilidade
 document.getElementById('accessibility-form').addEventListener('submit', function (event) {
     event.preventDefault()
     if ('Notification' in window) {
@@ -37,6 +41,7 @@ document.getElementById('accessibility-form').addEventListener('submit', functio
     }
 })
 
+// Modo Baixa Visão
 const isModoBaixaVisaoAtivado = sessionStorage.getItem('baixa-visao') === 'true';
 
 if (isModoBaixaVisaoAtivado) {
@@ -49,4 +54,18 @@ baixaVisaoSwitch.addEventListener('change', () => {
     
 
     sessionStorage.setItem('baixa-visao', header.classList.contains('baixa-visao'));
+});
+
+// Modo Daltônico
+const isModoDaltonicoAtivado = sessionStorage.getItem('daltonico') === 'true';
+
+if (isModoDaltonicoAtivado) {
+    daltonicoSwitch.classList.add('daltonico');
+    daltonicoSwitch.checked = true
+}
+
+daltonicoSwitch.addEventListener('change', () => {
+    daltonicoSwitch.classList.toggle('daltonico');
+    
+    sessionStorage.setItem('daltonico', daltonicoSwitch.classList.contains('daltonico'));
 });

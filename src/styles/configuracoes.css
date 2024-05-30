@@ -1,3 +1,11 @@
+:root {
+    --false: #BF3F3F;
+    --true: #03A65A;
+    --true-daltonico: #0000FF;
+    --texto-baixa-visao: 2.5px;
+} 
+/* Estrutura a ser seguida em todas os CSS. Declarar no cabeçalho as cores para daltonicos e tamanhos para baixa visão */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -27,11 +35,11 @@ header img {
 .header-options img:hover {
     transform: scale(1.1)
 }
-
+/* 
 .switch {
     --false: #BF3F3F;
     --true: #03A65A;
-}
+} */
    
 input[type=checkbox] {
     appearance: none;
@@ -62,6 +70,10 @@ input[type=checkbox]:checked::before {
     left: calc(100% - (1.9em/2 + .3em));
 }
 
+input[type=checkbox].daltonico:checked::before {
+    background-color: var(--true-daltonico);
+}
+
 a {
     text-decoration: none;
     color: #ccc;
@@ -76,7 +88,7 @@ form{
 }
 
 .menu.baixa-visao {
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .opcoes {
@@ -106,6 +118,10 @@ form{
 .opcoes ul li a {
     text-decoration: none;
     color: #333;
+}
+
+.opcoes.baixa-visao {
+    font-size: var(--texto-baixa-visao);
 }
 
 .campos-perfil {
