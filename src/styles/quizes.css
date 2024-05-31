@@ -3,7 +3,7 @@
     --true: #03A65A;
     --true-daltonico: #0000FF;
     --texto-baixa-visao: 3em;
-} 
+}
 
 body {
     font-family: Arial, 'Karasha', sans-serif;
@@ -24,19 +24,10 @@ header {
 header img {
     height: 2.5em;
     filter: invert(1);
-} 
-
-header img.baixa-visao {
-    height: 3em;
 }
-
 
 .header-options img:hover {
     transform: scale(1.1)
-}
-
-h1.baixa-visao{
-    font-size: 2.8em;
 }
 
 a {
@@ -47,30 +38,6 @@ a {
 main {
     display: flex;
 }
-
-/* Área do usuário 
-.user-area {
-    width: 15em; 
-    padding: 5em;
-}
-
-.user-data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.conquistas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.conquistas img {
-    width: 1.5em;
-    height: 1.5em;
-    margin: 0.5em;
-} */
 
 /* Áreas de quizes */
 .quizes-area {
@@ -101,17 +68,25 @@ main {
     transform: scale(1.05);
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
     header img {
         height: 1.5em;
     }
-    
+
     .user-area {
-        width: 0em; 
+        width: 0em;
         padding: 0em;
     }
 
     .quiz {
         width: 25em;
     }
+}
+
+header img.baixa-visao {
+    height: 3em;
+}
+
+h1.baixa-visao {
+    font-size: 2.8em;
 }
