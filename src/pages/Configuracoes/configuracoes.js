@@ -6,7 +6,7 @@ const baixaVisaoSwitch = document.getElementById('baixa-visao')
 const daltonicoSwitch = document.getElementById('daltonico')
 const header = document.querySelector('header')
 const body = document.querySelector('body')
-const button = document.querySelector('button')
+const buttonSalvar = document.getElementById('buttonSalvar')
 const campoPerfil = document.getElementById('campo-perfil')
 
 // Navegar entre menus
@@ -49,20 +49,21 @@ const isModoBaixaVisaoAtivado = sessionStorage.getItem('baixa-visao') === 'true'
 
 if (isModoBaixaVisaoAtivado) {
     header.classList.add('baixa-visao');
+    buttonSalvar.classList.add('baixa-visao');
+    body.classList.add('baixa-visao');
+    campoPerfil.classList.add('baixa-visao');
     baixaVisaoSwitch.checked = true
 }
 
 baixaVisaoSwitch.addEventListener('change', () => {
     header.classList.toggle('baixa-visao');
     body.classList.toggle('baixa-visao');
-    button.classList.toggle('baixa-visao');
+    buttonSalvar.classList.toggle('baixa-visao');
     campoPerfil.toggle('baixa-visao');
     
-    
-
     sessionStorage.setItem('baixa-visao', header.classList.contains('baixa-visao'));
     sessionStorage.setItem('baixa-visao', body.classList.contains('baixa-visao'));
-    sessionStorage.setItem('baixa-visao', button.classList.contains('baixa-visao'));
+    sessionStorage.setItem('baixa-visao', buttonSalvar.classList.contains('baixa-visao'));
     sessionStorage.setItem('baixa-visao', campoPerfil.classList.contains('baixa-visao'));
 });
 
@@ -71,11 +72,17 @@ const isModoDaltonicoAtivado = sessionStorage.getItem('daltonico') === 'true';
 
 if (isModoDaltonicoAtivado) {
     daltonicoSwitch.classList.add('daltonico');
+    baixaVisaoSwitch.classList.add('daltonico')
+    buttonSalvar.classList.add('daltonico')
     daltonicoSwitch.checked = true
 }
 
 daltonicoSwitch.addEventListener('change', () => {
     daltonicoSwitch.classList.toggle('daltonico');
+    baixaVisaoSwitch.classList.toggle('daltonico');
+    buttonSalvar.classList.toggle('daltonico');
     
     sessionStorage.setItem('daltonico', daltonicoSwitch.classList.contains('daltonico'));
+    sessionStorage.setItem('daltonico', baixaVisaoSwitch.classList.contains('daltonico'));
+    sessionStorage.setItem('daltonico', buttonSalvar.classList.contains('daltonico'));
 });

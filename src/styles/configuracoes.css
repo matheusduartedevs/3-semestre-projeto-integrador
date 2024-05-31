@@ -4,17 +4,12 @@
     --true-daltonico: #0000FF;
     --texto-baixa-visao: 1.7em;
 } 
-/* Estrutura a ser seguida em todas os CSS. Declarar no cabeçalho as cores para daltonicos e tamanhos para baixa visão */
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow-y: hidden;
-}
-
-body.baixa-visao{
-    font-size: var(--texto-baixa-visao);
 }
 
 header {
@@ -27,10 +22,6 @@ header {
     align-items: center;
 }
 
-header.baixa-visao {
-    height: 5em;
-}
-
 header img {
     height: 2.5em;
     filter: invert(1);
@@ -39,11 +30,6 @@ header img {
 .header-options img:hover {
     transform: scale(1.1)
 }
-/* 
-.switch {
-    --false: #BF3F3F;
-    --true: #03A65A;
-} */
    
 input[type=checkbox] {
     appearance: none;
@@ -72,10 +58,6 @@ input[type=checkbox]::before {
 input[type=checkbox]:checked::before {
     background-color: var(--true);
     left: calc(100% - (1.9em/2 + .3em));
-}
-
-input[type=checkbox].daltonico:checked::before {
-    background-color: var(--true-daltonico);
 }
 
 a {
@@ -174,14 +156,6 @@ button:hover {
     background-color:#03A65A;
 }
 
-button:hover.daltonico{
-    background-color: var(--true-daltonico);
-}
-
-button.baixa-visao{
-    width: 30em;
-}
-
 @media only screen and (max-width: 700px){
     .opcoes {
         font-size: 1.3em;
@@ -212,4 +186,24 @@ button.baixa-visao{
         margin: 0;
     }
     
+}
+
+body.baixa-visao{
+    font-size: var(--texto-baixa-visao);
+}
+
+header.baixa-visao {
+    height: 5em;
+}
+
+input[type=checkbox].daltonico:checked::before {
+    background-color: var(--true-daltonico);
+}
+
+#buttonSalvar:hover.daltonico{
+    background-color: var(--true-daltonico);
+}
+
+#buttonSalvar.baixa-visao{
+    width: 30em;
 }
