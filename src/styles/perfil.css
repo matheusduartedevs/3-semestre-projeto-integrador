@@ -1,3 +1,10 @@
+:root {
+    --false: #BF3F3F;
+    --true: #03A65A;
+    --true-daltonico: #0000FF;
+    --texto-baixa-visao: 3em;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,6 +21,10 @@ header {
     align-items: center;
 }
 
+header.baixa-visao {
+    font-size: 2em;
+}
+
 header img {
     height: 2.5em;
     filter: invert(1);
@@ -23,58 +34,69 @@ header img {
     transform: scale(1.1)
 }
 
+main{
+    align-items: center;
+    display: ruby-text;
+}
 
 .user-info {
-    padding: 1em 4em;
-    display: flex;
+    padding: 2em 4em;
+    display: inline-table;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
+    border: 1px solid #000;
+    border-radius:  1em;
     height: 6em;
+    margin: 2em;
+    text-align: center;  
 }
 
 .user-info img {
     border-radius: 50%;
     background-color: green;
+    width: 10em;
 }
 
-.stats {
-    padding: 1em 4em;
-    border-bottom: 1px solid #000;
+.user-info img.daltonico {
+    background-color: var(--true-daltonico);
 }
 
-.stats p {
+h2{
+    margin: 1.5em 0 0.2em 0;
+} 
+
+h2.baixa-visao{
+    font-size: var(--texto-baixa-visao);
+}
+
+#perfil{
+    margin:0;
+}
+
+#email{
+    border:none;
+    padding: 0;
+}
+
+p{
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000;
-    border-radius: 1.5em;
-    width: 13em;
-    height: 6em;
+    border: 1px solid #000;
+    border-radius: 1em;
+    padding: .6em;
+}
+
+p.baixa-visao{
+    font-size: 2em;
 }
 
 .stats-info {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10em;
-}
-
-.awards {
-    padding: 1em 4em;
-}
-
-.awards img {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #000;
-    border-radius: 1.5em;
-    width: 8em;
-    height: 8em;
-    padding: .5em
-    background-color:;
+    gap: 1em;
 }
 
 .awards-info {
@@ -82,7 +104,19 @@ header img {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10em;
+    gap: 1em;
+}
+
+.awards-info img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px;
+    border-radius: 1.5em;
+    width: 8em;
+    height: 8em;
+    padding: .5em;
 }
 
 @media only screen and (max-width: 700px){
@@ -91,16 +125,15 @@ header img {
     }
     
     .stats-info {
-        margin: 0;
-        gap: 1.8em;
+        margin: 0; 
     }
 
-    .stats p{
+    .stats-info p{
+        padding: 1em;
         width: 18em;
-        height: 6em;
     }
 
     .awards-info {
-        gap: 2em;
+        gap: 1.3em;
     }
 }
