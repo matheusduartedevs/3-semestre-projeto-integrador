@@ -136,3 +136,12 @@ h2.baixa-visao {
 p.baixa-visao {
     font-size: 2em;
 }
+
+main.dark-mode {
+    background-color: #000;
+}
+
+.user-info.dark-mode {
+    border: 1px solid white;
+    background-color:  #333;
+}
